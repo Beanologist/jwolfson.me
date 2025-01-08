@@ -7,7 +7,7 @@
 </head>
 <body>
   <h1 style="color: blue;">
-    This is my first webpage for Cs55. Below is a cool slots game (with some chatgpt help).
+    This is my first webpage for Cs55. Below is a cool slots game.
   </h1>
 
   <!-- below is taken from chatgpt-->
@@ -46,6 +46,65 @@
         message.textContent = "😢 Try again!";
         message.style.color = "white";
       }
+    }
+  </script>
+
+
+
+<h1 style="text-align: center; color: lime;">🌟 Adventure Game 🌟</h1>
+  <div id="game" style="white-space: pre-line; margin: 20px auto; max-width: 600px; border: 2px solid lime; padding: 20px; border-radius: 10px;">
+    <p>You find yourself in a dark forest. Paths lead:</p>
+    <p>1. Left 🡸</p>
+    <p>2. Right 🡺</p>
+    <p>3. Forward 🡹</p>
+    <button onclick="choosePath(1)" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Go Left</button>
+    <button onclick="choosePath(2)" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Go Right</button>
+    <button onclick="choosePath(3)" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Go Forward</button>
+  </div>
+
+  <script>
+    function choosePath(choice) {
+      const gameDiv = document.getElementById("game");
+      if (choice === 1) {
+        gameDiv.innerHTML = `
+          <p>You went left and encountered a sleeping dragon! What do you do?</p>
+          <p>1. Sneak past it 🐉</p>
+          <p>2. Attack it ⚔️</p>
+          <button onclick="dragonChoice(1)" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Sneak Past</button>
+          <button onclick="dragonChoice(2)" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Attack</button>
+        `;
+      } else if (choice === 2) {
+        gameDiv.innerHTML = `
+          <p>You went right and fell into a pit! Game Over. 💀</p>
+          <button onclick="restart()" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: red; border: none; border-radius: 5px; cursor: pointer;">Restart</button>
+        `;
+      } else if (choice === 3) {
+        gameDiv.innerHTML = `
+          <p>You went forward and found a treasure chest! 🪙</p>
+          <p>You win! 🎉</p>
+          <button onclick="restart()" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Play Again</button>
+        `;
+      }
+    }
+
+    function dragonChoice(choice) {
+      const gameDiv = document.getElementById("game");
+      if (choice === 1) {
+        gameDiv.innerHTML = `
+          <p>You successfully sneak past the dragon and escape the forest. 🏞️</p>
+          <p>You win! 🎉</p>
+          <button onclick="restart()" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: lime; border: none; border-radius: 5px; cursor: pointer;">Play Again</button>
+        `;
+      } else if (choice === 2) {
+        gameDiv.innerHTML = `
+          <p>You attack the dragon, but it wakes up and burns you to a crisp! Game Over. 💀</p>
+          <button onclick="restart()" style="display: block; margin: 10px auto; padding: 10px 20px; font-size: 1rem; color: black; background: red; border: none; border-radius: 5px; cursor: pointer;">Restart</button>
+        `;
+      }
+    }
+
+    function restart() {
+      location.reload();
     }
   </script>
 
