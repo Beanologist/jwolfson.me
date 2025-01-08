@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 style="color: blue;">
+    This is my first webpage for Cs55. Below is a cool slots game (with some chatgpt help).
+  </h1>
+
+  <!-- below is taken from chatgpt-->
+  <h1 style="margin: 0; font-size: 2.5rem; text-shadow: 2px 2px 5px #000;">🎰 Slots Game 🎰</h1>
+  <div id="slots" style="display: flex; justify-content: center; align-items: center; margin: 20px;">
+    <div id="slot1" style="width: 100px; height: 100px; margin: 10px; background: white; color: black; display: flex; justify-content: center; align-items: center; font-size: 2rem; border: 2px solid #000; border-radius: 10px;">🍒</div>
+    <div id="slot2" style="width: 100px; height: 100px; margin: 10px; background: white; color: black; display: flex; justify-content: center; align-items: center; font-size: 2rem; border: 2px solid #000; border-radius: 10px;">🍋</div>
+    <div id="slot3" style="width: 100px; height: 100px; margin: 10px; background: white; color: black; display: flex; justify-content: center; align-items: center; font-size: 2rem; border: 2px solid #000; border-radius: 10px;">🍇</div>
+  </div>
+  <button onclick="spinSlots()" style="padding: 10px 20px; font-size: 1rem; border: none; border-radius: 5px; background-color: #28a745; color: white; cursor: pointer; box-shadow: 2px 2px 5px #000;">Spin</button>
+  <p id="message" style="margin-top: 20px; font-size: 1.5rem;"></p>
+
+  <script>
+    function spinSlots() {
+      const emojis = ["🍒", "🍋", "🍇", "🍉", "⭐", "🍊"];
+      const slot1 = document.getElementById("slot1");
+      const slot2 = document.getElementById("slot2");
+      const slot3 = document.getElementById("slot3");
+      const message = document.getElementById("message");
+
+      // Randomly pick emojis
+      const result1 = emojis[Math.floor(Math.random() * emojis.length)];
+      const result2 = emojis[Math.floor(Math.random() * emojis.length)];
+      const result3 = emojis[Math.floor(Math.random() * emojis.length)];
+
+      // Set the results
+      slot1.textContent = result1;
+      slot2.textContent = result2;
+      slot3.textContent = result3;
+
+      // Check if the user wins
+      if (result1 === result2 && result2 === result3) {
+        message.textContent = "🎉 JACKPOT! You win! 🎉";
+        message.style.color = "gold";
+      } else {
+        message.textContent = "😢 Try again!";
+        message.style.color = "white";
+      }
+    }
+  </script>
+
+</body>
+</html>
